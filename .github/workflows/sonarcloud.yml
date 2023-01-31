@@ -21,7 +21,7 @@ jobs:
         run: |
           cd ../
           mkdir -p ./vecmem-build && cd ./vecmem-build
-          ccmake -S ../vecmem -B ./ -D VECMEM_BUILD_CUDA_LIBRARY=ON -D CMAKE_CUDA_COMPILER=/usr/local/cuda/bin/nvcc
+          cmake -S ../vecmem -B ./ -D VECMEM_BUILD_CUDA_LIBRARY=ON -D CMAKE_CUDA_COMPILER=/usr/local/cuda/bin/nvcc
           cd ../vecmem
           build-wrapper-linux-x86-64 --out-dir ${{ env.BUILD_WRAPPER_OUT_DIR }} cmake --build ../vecmem-build --clean-first -j4
       - name: Run sonar-scanner
